@@ -4,7 +4,7 @@ from redactor.views import redactor_upload
 from redactor.forms import FileForm, ImageForm
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url('^upload/image/(?P<upload_to>.*)', redactor_upload, {
         'form_class': ImageForm,
         'response': lambda name, url: '<img src="%s" alt="%s" />' % (url, name),
@@ -14,4 +14,4 @@ urlpatterns = patterns('',
         'form_class': FileForm,
         'response': lambda name, url: '<a href="%s">%s</a>' % (url, name),
     }, name='redactor_upload_file'),
-)
+]
